@@ -21,7 +21,7 @@
           <p>住基異動 進捗</p>
         </div>
         <div class="main-button">
-          <button>新規受付</button>
+          <button><p>新規受付</p></button>
         </div>
         <div class="main-tabs">
           <div class="tab isActive">入力待ち</div>
