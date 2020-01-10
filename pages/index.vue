@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="header font">
-      <span>サービス名 [船橋市 戸籍住民課]</span>
+      <div class="logo">
+        <img src="/funabashilogo.png" alt="" />
+      </div>
+      <div style="width: 100%;">サービス名 [船橋市 戸籍住民課]</div>
     </div>
     <div class="body">
       <div class="side">
@@ -14,7 +17,7 @@
         <div class="side-menu">証明</div>
       </div>
       <div class="main">
-        <div class="main-toolbar">ツールバー</div>
+        <div class="main-toolbar">住基異動 進捗</div>
         <div class="main-tabs">
           <div class="tab isActive">入力待ち</div>
           <div class="tab">決裁待ち</div>
@@ -29,7 +32,7 @@
             <div class="card-item-title" style="width: 20%;">受付内容</div>
             <div class="card-item-title" style="width: 20%;">特記</div>
             <div class="card-item-title" style="width: 10%;"></div>
-            <div class="card-item-title" style="width: 10%;"></div>
+            <div class="card-item-title non-border" style="width: 10%;"></div>
           </div>
           <div v-for="item in tickets" :key="item" class="card">
             <div class="card-item number" style="width: 10%;">
@@ -159,6 +162,8 @@ export default {
   height: 50px;
   padding: 5px;
   border-bottom: thin solid #cdcdcd;
+  display: flex;
+  justify-content: flex-start;
 }
 .body {
   width: 100%;
@@ -189,7 +194,8 @@ export default {
 }
 /* ヘッダー */
 .logo {
-  height: 100px;
+  width: 30px;
+  height: 30px;
 }
 .logo > img {
   width: 100%;
@@ -228,7 +234,9 @@ export default {
 .card-item-title {
   flex-grow: 1;
   border-left: thin solid #cdcdcd;
-  border-right: thin solid #cdcdcd;
+}
+.non-border {
+  border: none;
 }
 .button {
   border: thin solid #cdcdcd;
