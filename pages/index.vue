@@ -11,18 +11,23 @@
         <div class="title">
           窓口一覧
         </div>
-        <div class="side-menu">住基異動</div>
+        <div class="side-menu isActive">住基異動</div>
         <div class="side-menu">印鑑異動</div>
         <div class="side-menu">カード</div>
         <div class="side-menu">証明</div>
       </div>
       <div class="main">
-        <div class="main-toolbar">住基異動 進捗</div>
+        <div class="main-toolbar">
+          <p>住基異動 進捗</p>
+        </div>
+        <div class="main-button">
+          <button>新規受付</button>
+        </div>
         <div class="main-tabs">
           <div class="tab isActive">入力待ち</div>
           <div class="tab">決裁待ち</div>
           <div class="tab">完了</div>
-          <div class="tab">保留</div>
+          <div class="tab">保留中</div>
         </div>
         <div class="main-card-wapper">
           <div class="card titlewapper">
@@ -83,58 +88,58 @@ export default {
           waitingTime: '10分',
           orders: ['住基異動', '印鑑異動', 'カード', '証明'],
           tags: ['戸籍異動有'],
+          status: '入力待ち',
           isPending: false,
           isFinished: false
         },
         {
           number: 16,
           startTime: '10:05',
-          waitingTime: '10分',
+          waitingTime: '5分',
           orders: ['住基異動', 'カード', '証明'],
           tags: [],
+          status: '入力待ち',
           isPending: false,
           isFinished: false
         },
         {
           number: 17,
           startTime: '10:08',
-          waitingTime: '10分',
+          waitingTime: '2分',
           orders: ['カード', '証明'],
           tags: [],
+          status: '入力待ち',
           isPending: false,
           isFinished: false
         },
         {
           number: 18,
           startTime: '10:09',
-          waitingTime: '10分',
+          waitingTime: '1分',
           orders: ['住基異動', '印鑑異動', 'カード', '証明'],
           tags: ['複数異動'],
+          status: '入力待ち',
           isPending: false,
           isFinished: false
         },
         {
           number: 19,
-          startTime: '10:00',
-          waitingTime: '10分',
+          startTime: '10:09',
+          waitingTime: '1分',
           orders: ['住基異動', '印鑑異動', 'カード', '証明'],
           tags: ['戸籍異動有'],
+          status: '入力待ち',
           isPending: false,
           isFinished: false
         }
       ]
     }
   },
-  mounted() {
-    this.onLoad()
-  },
   methods: {
-    onLoad() {
-      console.log(this.hoge)
-    },
     onClick(isPending) {
+      console.log('before', this.tickets.isPending)
       this.tickets.isPending = !isPending
-      console.log(this.tickets.isPending)
+      console.log('after', this.tickets.isPending)
     }
   }
 }
@@ -179,7 +184,6 @@ export default {
 .main {
   width: 80%;
   height: 100%;
-  padding: 20px;
 }
 
 /* サイド */
@@ -191,6 +195,11 @@ export default {
 .side > .side-menu {
   margin: 20px;
   border-bottom: thin solid #cdcdcd;
+  color: #cdcdcd;
+}
+
+.side-menu.isActive {
+  color: #000;
 }
 /* ヘッダー */
 .logo {
@@ -202,18 +211,41 @@ export default {
   height: 100%;
 }
 /* メイン */
+.main-toolbar {
+  background-color: #fff;
+}
+.main-button {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: #cdcdcd;
+  padding-top: 5px;
+  padding-right: 30px;
+}
+button {
+  width: 100px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+}
 .main-tabs {
+  padding: 0 20px;
+
   display: flex;
   flex-direction: row;
+  background-color: #cdcdcd;
 }
 .tab {
   width: 100px;
   border: thin solid #cdcdcd;
   border-top-right-radius: 5px;
   padding: 10px;
+  background-color: #fff;
 }
 .tab.isActive {
   border-bottom: none;
+}
+.main-card-wapper {
+  padding: 20px;
 }
 /* カード */
 .card {
