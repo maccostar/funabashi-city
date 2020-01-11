@@ -60,7 +60,7 @@
               </div>
             </div>
             <div
-              @click="onClick(item.isPending)"
+              @click="onClick(item)"
               class="card-item button"
               style="width: 10%;"
             >
@@ -136,10 +136,8 @@ export default {
     }
   },
   methods: {
-    onClick(isPending) {
-      console.log('before', this.tickets.isPending)
-      this.tickets.isPending = !isPending
-      console.log('after', this.tickets.isPending)
+    onClick(item) {
+      console.log('before', item)
     }
   }
 }
@@ -237,8 +235,10 @@ button {
 .tab {
   width: 100px;
   border: thin solid #cdcdcd;
-  border-top-right-radius: 5px;
+  border-top-right-radius: 10px;
+  /* border-top-left-radius: 5px; */
   padding: 10px;
+  margin-right: 3px;
   background-color: #fff;
 }
 .tab.isActive {
@@ -285,7 +285,7 @@ button {
 .tag {
   height: 30px;
   border: thin solid #cdcdcd;
-  border-radius: 2px;
+  border-radius: 7px;
   margin: 1px;
 }
 </style>
